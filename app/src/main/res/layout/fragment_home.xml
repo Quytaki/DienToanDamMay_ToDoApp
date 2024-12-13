@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F7F7F7"
+    android:fitsSystemWindows="true"
+    tools:context=".fragments.HomeFragment">
+    <ImageView
+        android:id="@+id/felt_tip_pen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/felt_tip_pen"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/felt_tip_pen_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/felt_tip_pen_back"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/PinnedRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/recent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pinned" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mainRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSection"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/notes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="15dp"
+            android:fontFamily="@font/inter_extra_bold"
+            android:text="Notes"
+            android:textColor="@color/fiotel_dream"
+            android:textSize="40dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/searchView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <SearchView
+            android:id="@+id/searchView"
+            style="@style/MySearchViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/search_view_background"
+            android:iconifiedByDefault="false"
+            android:queryHint="Search"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/notes" />
+
+        <TextView
+            android:id="@+id/Edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:text="Edit"
+            android:textColor="@color/fiotel_dream"
+            android:textSize="22dp"
+            app:layout_constraintBottom_toTopOf="@+id/searchView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/Done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:text="Done"
+            android:textColor="@color/fiotel_dream"
+            android:textSize="23dp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/searchView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/buttonSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+        <View
+            android:id="@+id/bottom_panel"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="2dp"
+            android:background="@drawable/rounded_top_corners_for_the_bottom_panel"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/note_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Notes"
+            android:textSize="18dp"
+            android:textColor="@color/fiotel_dream"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/bottom_panel" />
+        <ImageView
+            android:id="@+id/addTaskBtn_main"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="15dp"
+            android:src="@drawable/ic_add_note"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/bottom_panel" />
+        <TextView
+            android:id="@+id/DeleteAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete All"
+            android:textColor="@color/fiotel_dream"
+            android:textSize="22dp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/bottom_panel"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <View
+        android:id="@+id/view_1"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/anim_rounded_rectangle"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/PinnedRecyclerView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topSection" />
+    <View
+        android:id="@+id/view_2"
+        android:layout_width="350dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/anim_rounded_rectangle"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_1" />
+    <View
+        android:id="@+id/view_3"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/anim_rounded_rectangle"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_2" />
+    <View
+        android:id="@+id/view_4"
+        android:layout_width="350dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/anim_rounded_rectangle"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_3" />
+    <TextView
+        android:id="@+id/pinned"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="Pinned"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/PinnedRecyclerView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topSection" />
+    <TextView
+        android:id="@+id/A_z_sort_pinned"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="A\nZ"
+        android:textColor="@color/fiotel_dream"
+        android:textSize="10dp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/PinnedRecyclerView"
+        app:layout_constraintEnd_toStartOf="@+id/icSort_pinned"
+        app:layout_constraintTop_toBottomOf="@+id/topSection" />
+
+    <ImageView
+        android:id="@+id/icTime_pinned"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:src="@drawable/ic_time"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/PinnedRecyclerView"
+        app:layout_constraintEnd_toStartOf="@+id/icSort_pinned"
+        app:layout_constraintTop_toBottomOf="@+id/topSection" />
+    <ImageView
+        android:id="@+id/icSort_pinned"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/ic_sort"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/PinnedRecyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topSection" />
+    <TextView
+        android:id="@+id/recent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Recent"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/mainRecyclerView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PinnedRecyclerView" />
+    <TextView
+        android:id="@+id/A_z_sort_recent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="A\nZ"
+        android:textColor="@color/fiotel_dream"
+        android:textSize="10dp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/mainRecyclerView"
+        app:layout_constraintEnd_toStartOf="@+id/icSort_recent"
+        app:layout_constraintTop_toBottomOf="@+id/PinnedRecyclerView" />
+    <ImageView
+        android:id="@+id/icSort_recent"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/ic_sort"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/mainRecyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PinnedRecyclerView" />
+    <ImageView
+        android:id="@+id/icTime_recent"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:src="@drawable/ic_time"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/mainRecyclerView"
+        app:layout_constraintEnd_toStartOf="@+id/icSort_recent"
+        app:layout_constraintTop_toBottomOf="@+id/PinnedRecyclerView"
+        app:layout_constraintVertical_bias="0.473" />
+</androidx.constraintlayout.widget.ConstraintLayout>
